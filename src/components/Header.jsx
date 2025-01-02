@@ -2,7 +2,7 @@ import { Grid, ArrowLeft, Plus, Settings, RefreshCw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
-import { titles, nav, buttons } from '../config/branding';
+import { titles, nav, buttons, modals } from '../config/branding';
 import { useState } from 'react';
 import {
   AlertDialog,
@@ -60,14 +60,14 @@ const Header = ({ isManageMode, onManageToggle, onReset, onAdd }) => {
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Reset Confirmation</AlertDialogTitle>
+                  <AlertDialogTitle>{modals.confirmReset.title}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Are you sure you want to reset? This action cannot be undone.
+                    {modals.confirmReset.message}
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={confirmReset}>Reset</AlertDialogAction>
+                  <AlertDialogCancel>{buttons.cancel}</AlertDialogCancel>
+                  <AlertDialogAction onClick={confirmReset}>{buttons.reset}</AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>

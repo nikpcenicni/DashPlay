@@ -2,7 +2,7 @@
 import { Play, Grid } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
-import { company, nav } from '../config/branding';
+import { buttons, company, nav } from '../config/branding';
 import Footer from '../components/Footer';
 
 export const LaunchPage = () => {
@@ -41,7 +41,7 @@ export const LaunchPage = () => {
               </div>
             </div>
           </button>
-          <span className="text-gray-900 dark:text-white text-xl font-semibold">Launch</span>
+          <span className="text-gray-900 dark:text-white text-xl font-semibold">{buttons.launch}</span>
         </div>
 
         {/* Preview Button */}
