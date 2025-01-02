@@ -78,5 +78,13 @@ export const mediaServices = [
     color: 'bg-green-600',
     textColor: 'text-green-600',
     description: 'Music Streaming'
+  },
+  {
+    name: 'Apple TV+',
+    logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/appletv.svg',
+    link: 'https://tv.apple.com/',
+    color: 'bg-blue-600',
+    textColor: 'text-blue-600',
+    description: 'Music Streaming'
   }
 ];
