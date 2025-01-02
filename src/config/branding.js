@@ -3,7 +3,7 @@
 export const branding = {
     // Company/App Info
     company: {
-      name: 'Telsa Theatre',
+      name: 'DashPlay',
       tagline: 'Your Entertainment Gateway',
       copyright: '© 2025 Pcenicni.dev. All rights reserved.',
       supportEmail: 'support@pcenicni.dev',
@@ -13,7 +13,7 @@ export const branding = {
   
     // Page Titles
     titles: {
-      home: 'Tesla Theatre',
+      home: 'DashPlay',
       apps: 'Sources',
       settings: 'Settings'
     },
@@ -23,7 +23,7 @@ export const branding = {
       back: 'Go back',
       preview: 'Preview Available Apps',
       previewSubtext: 'See supported platforms',
-      launch: "https://youtube.com/redirect?q=https://tesla.pcenicni.ca/apps"
+      launch: "https://youtube.com/redirect?q=https://www.dashplay.app/apps"
     },
   
     // Buttons
