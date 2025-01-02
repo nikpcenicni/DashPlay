@@ -1,4 +1,4 @@
-# Tesla Browser Media Enhancer
+# DashPlay.App
 
 A web application that enhances the media viewing experience in Tesla browsers by enabling fullscreen playback from custom media sources. This project extends the default YouTube functionality to support additional streaming platforms and media sources.
 
@@ -30,7 +30,7 @@ The application runs entirely in your Tesla's browser and allows you to:
 
 ```bash
 # Clone the repository
-git clone https://github.com/nikpcenicni/Tesla-Theatre.git
+git clone https://github.com/nikpcenicni/DashPlay.git
 
 # Install dependencies
 npm install
@@ -73,4 +73,4 @@ This project is not affiliated with Tesla, Inc. Use at your own discretion.
 
 ## Support
 
-For issues or feature requests, please use the [GitHub Issues](https://github.com/yourusername/your-repo-name/issues) page.
+For issues or feature requests, please use the [GitHub Issues](https://github.com/nikpcenicni/DashPlay/issues) page.
