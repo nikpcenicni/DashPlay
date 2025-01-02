@@ -40,41 +40,50 @@ export const AppsPage = () => {
   };
 
   const handleReset = () => {
-      resetToDefaults();
-      setIsManageMode(false);
+    resetToDefaults();
+    setIsManageMode(false);
   };
 
   if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 dark:text-gray-100">
-      {loading.apps}
-    </div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center dark:bg-gray-900 dark:text-gray-100">
+        {loading.apps}
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
-      <Header 
-        isManageMode={isManageMode}
-        onManageToggle={() => setIsManageMode(!isManageMode)}
-        onReset={handleReset}
-        onAdd={handleAdd}
-      />
+    // Outer container with min-height
+    <div className="relative min-h-screen bg-gray-100 dark:bg-gray-900">
+      {/* Inner container for content that excludes footer */}
+      <div className="pb-[footer-height]"> {/* Replace [footer-height] with your footer's actual height */}
+        <Header
+          isManageMode={isManageMode}
+          onManageToggle={() => setIsManageMode(!isManageMode)}
+          onReset={handleReset}
+          onAdd={handleAdd}
+        />
+        
+        {/* Main Content */}
+        <main className="w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map((service, index) => (
+                <MediaCard
+                  key={index}
+                  service={service}
+                  isManageMode={isManageMode}
+                  onEdit={() => handleEdit(service, index)}
+                  onDelete={() => handleDelete(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </main>
+      </div>
 
-      {/* Main Content */}
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <MediaCard
-              key={index}
-              service={service}
-              isManageMode={isManageMode}
-              onEdit={() => handleEdit(service, index)}
-              onDelete={() => handleDelete(index)}
-            />
-          ))}
-        </div>
-      </main>
-
-      <div className="w-full">
+      {/* Footer - absolutely positioned at bottom */}
+      <div className='pt-4'>
         <Footer company={company} />
       </div>
 
