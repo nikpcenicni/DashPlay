@@ -85,6 +85,6 @@ export const mediaServices = [
     link: 'https://tv.apple.com/',
     color: 'bg-blue-600',
     textColor: 'text-blue-600',
-    description: 'Music Streaming'
+    description: 'TV & Originals'
   }
 ];
