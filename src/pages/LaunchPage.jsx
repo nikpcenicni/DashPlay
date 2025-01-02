@@ -3,6 +3,7 @@ import { Play, Grid } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { company, nav } from '../config/branding';
+import Footer from '../components/Footer';
 
 export const LaunchPage = () => {
   const navigate = useNavigate();
@@ -56,12 +57,7 @@ export const LaunchPage = () => {
         </div>
       </div>
 
-      <footer className="absolute bottom-4 text-center">
-        <p className="text-gray-500 dark:text-gray-400 text-sm">                <a href={company.website} className="hover:text-gray-700 dark:hover:text-gray-300"
-                rel="noopener noreferrer">
-                    {company.copyright}
-                </a></p>
-      </footer>
+      <Footer company={company} />
     </div>
   );
 };

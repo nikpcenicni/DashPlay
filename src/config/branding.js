@@ -5,9 +5,10 @@ export const branding = {
     company: {
       name: 'Telsa Theatre',
       tagline: 'Your Entertainment Gateway',
-      copyright: '© 2024 Pcenicni.dev. All rights reserved.',
+      copyright: '© 2025 Pcenicni.dev. All rights reserved.',
       supportEmail: 'support@pcenicni.dev',
-      website: "https://pcenicni.dev"
+      website: "https://pcenicni.dev",
+      sourceCode: "Github"
     },
   
     // Page Titles
@@ -80,12 +81,6 @@ export const branding = {
     loading: {
       apps: 'Loading...',
       services: 'Loading services...'
-    },
-  
-    // Footer Links
-    footer: {
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Service'
     },
   
     // Error Messages

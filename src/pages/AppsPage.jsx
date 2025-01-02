@@ -3,7 +3,8 @@ import { MediaCard } from '../components/MediaCard';
 import { ServiceModal } from '../components/ServiceModal';
 import { Header } from '../components/Header';
 import { useMediaServices } from '../hooks/useMediaServices';
-import { modals, loading, company, footer } from '../config/branding';
+import { modals, loading, company} from '../config/branding';
+import Footer from '../components/Footer';
 
 export const AppsPage = () => {
   const { services, isLoading, addService, updateService, deleteService, resetToDefaults } = useMediaServices();
@@ -73,27 +74,9 @@ export const AppsPage = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-                <a href={company.website} className="hover:text-gray-700 dark:hover:text-gray-300"
-                rel="noopener noreferrer">
-                    {company.copyright}
-                </a>
-            </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                {footer.privacy}
-              </a>
-              <a href="#" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300">
-                {footer.terms}
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <div className="w-full">
+        <Footer company={company} />
+      </div>
 
       {/* Modal */}
       {isModalOpen && (
