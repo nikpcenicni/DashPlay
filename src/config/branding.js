@@ -22,7 +22,8 @@ export const branding = {
     nav: {
       back: 'Go back',
       preview: 'Preview Available Apps',
-      previewSubtext: 'See supported platforms'
+      previewSubtext: 'See supported platforms',
+      launch: "https://youtube.com/redirect?q=https://tesla.pcenicni.ca/apps"
     },
   
     // Buttons

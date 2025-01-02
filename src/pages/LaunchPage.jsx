@@ -9,7 +9,7 @@ export const LaunchPage = () => {
   const navigate = useNavigate();
 
   const handleLaunch = () => {
-    window.location.href = 'https://youtube.com/redirect?q=https://tesla.pcenicni.ca/apps';
+    window.location.href = nav.launch;
   };
 
   const handlePreview = () => {
