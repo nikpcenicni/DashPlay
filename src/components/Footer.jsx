@@ -13,7 +13,7 @@ const Footer = ({ company }) => {
         </a>
         {' • '}
         <a 
-          href="https://github.com/nikpcenicni/Tesla-Theatre"
+          href="https://github.com/nikpcenicni/DashPlay"
           className="hover:text-gray-700 dark:hover:text-gray-300"
           target="_blank"
           rel="noopener noreferrer"
