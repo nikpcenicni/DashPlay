@@ -5,6 +5,16 @@ import { modals } from '../config/branding';
 
 const { service: modalConfig } = modals;
 
+const getFaviconUrl = (url) => {
+  try {
+    const urlObj = new URL(url);
+    return `${urlObj.protocol}//${urlObj.hostname}/favicon.ico`;
+  // eslint-disable-next-line no-unused-vars
+  } catch (e) {
+    return '';
+  }
+};
+
 export const ServiceModal = ({ service, onSave, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -23,7 +33,11 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+    const submitData = {
+      ...formData,
+      logo: formData.logo || getFaviconUrl(formData.link)
+    };
+    onSave(submitData);
     onClose();
   };
 
@@ -73,7 +87,6 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
               value={formData.logo}
               onChange={handleChange}
               className="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md px-3 py-2"
-              required
             />
           </div>
 
@@ -101,7 +114,6 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
               value={formData.description}
               onChange={handleChange}
               className="w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md px-3 py-2"
-              required
             />
           </div>
 
@@ -149,7 +161,7 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
 ServiceModal.propTypes = {
   service: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    logo: PropTypes.string.isRequired,
+    logo: PropTypes.string,  // Made optional
     link: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     textColor: PropTypes.string.isRequired,

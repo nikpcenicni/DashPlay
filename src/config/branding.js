@@ -48,8 +48,8 @@ export const branding = {
       editTitle: 'Edit Service',
       fields: {
         name: 'Service Name',
-        description: 'Description',
-        logo: 'Logo URL',
+        description: 'Description (Optional)',
+        logo: 'Logo URL (Optional - will use site favicon if not provided)',
         link: 'Service URL',
         colorTheme: 'Color Theme'
       },
