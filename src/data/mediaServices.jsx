@@ -26,7 +26,7 @@ export const mediaServices = [
   {
     name: 'Plex',
     logo: 'https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/plex.png',
-    link: 'https://plex.tv',
+    link: 'https://app.plex.tv',
     color: 'bg-yellow-500',
     textColor: 'text-yellow-500',
     description: 'Personal Media Server'
