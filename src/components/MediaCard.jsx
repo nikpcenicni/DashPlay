@@ -4,7 +4,7 @@ import { Settings, X } from 'lucide-react';
 export const MediaCard = ({ service, onEdit, onDelete, isManageMode }) => {
   const handleClick = () => {
     if (!isManageMode) {
-      window.location.href = `https://youtube.com/redirect?q=${service.link}`;
+      window.location.href = `${service.link}`;
     }
   };
 
