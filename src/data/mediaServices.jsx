@@ -86,5 +86,21 @@ export const mediaServices = [
     color: 'bg-blue-600',
     textColor: 'text-blue-600',
     description: 'TV & Originals'
+  },
+  {
+    name: 'Google Maps',
+    logo: 'https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google-maps.png',
+    link: 'https://maps.google.ca',
+    color: 'bg-blue-600',
+    textColor: 'text-blue-600',
+    description: 'Maps & Navigation'
+  },
+  {
+    name: 'Waze',
+    logo: 'https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/waze.png',
+    link: 'https://www.waze.com/live-map/',
+    color: 'bg-blue-600',
+    textColor: 'text-blue-600',
+    description: 'Maps & Navigation'
   }
 ];
