@@ -4,11 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { buttons, company, nav } from '../config/branding';
 import Footer from '../components/Footer';
+import { trackEvent } from '../hooks/analytics';
 
 export const LaunchPage = () => {
   const navigate = useNavigate();
 
   const handleLaunch = () => {
+    trackEvent('button_click', {
+      category: 'engagement',
+      label: 'hero_button'
+    })
     window.location.href = nav.launch;
   };
 
