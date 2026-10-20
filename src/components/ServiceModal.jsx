@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { X } from 'lucide-react';
-import { modals } from '../config/branding';
+import { modals, errors } from '../config/branding';
+import { isSafeHttpUrl } from '../lib/safeUrl';
 
 const { service: modalConfig } = modals;
 
@@ -31,8 +32,14 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
     }
   }, [service]);
 
+  const [error, setError] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isSafeHttpUrl(formData.link) || (formData.logo && !isSafeHttpUrl(formData.logo))) {
+      setError(errors.invalidUrl);
+      return;
+    }
     const submitData = {
       ...formData,
       logo: formData.logo || getFaviconUrl(formData.link)
@@ -44,6 +51,7 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    setError('');
   };
 
   return (
@@ -136,6 +144,10 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
               ))}
             </div>
           </div>
+
+          {error && (
+            <p className="text-sm text-red-600 dark:text-red-400" role="alert">{error}</p>
+          )}
 
           <div className="flex justify-end space-x-2 pt-4">
             <button

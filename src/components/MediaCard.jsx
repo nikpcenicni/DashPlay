@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { Settings, X } from 'lucide-react';
+import { isSafeHttpUrl } from '../lib/safeUrl';
 
 export const MediaCard = ({ service, onEdit, onDelete, isManageMode }) => {
   const handleClick = () => {
-    if (!isManageMode) {
-      window.location.href = `${service.link}`;
+    if (!isManageMode && isSafeHttpUrl(service.link)) {
+      window.location.href = service.link;
     }
   };
 

@@ -1,5 +1,7 @@
 # DashPlay.App
 
+Live deployment: [dashplay.app](https://dashplay.app)
+
 A web application that enhances the media viewing experience in Tesla browsers by enabling fullscreen playback from custom media sources. This project extends the default YouTube functionality to support additional streaming platforms and media sources.
 
 ## Features

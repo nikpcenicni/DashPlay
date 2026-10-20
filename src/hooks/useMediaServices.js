@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { mediaServices as defaultServices } from '../data/mediaServices';
+import { isValidService } from '../lib/safeUrl';
 
 export const useMediaServices = () => {
   const [services, setServices] = useState([]);
@@ -8,9 +9,16 @@ export const useMediaServices = () => {
   useEffect(() => {
     // Load services from localStorage or use defaults
     const loadServices = () => {
-      const savedServices = localStorage.getItem('mediaServices');
-      if (savedServices) {
-        setServices(JSON.parse(savedServices));
+      let savedServices = null;
+      try {
+        savedServices = JSON.parse(localStorage.getItem('mediaServices'));
+      // eslint-disable-next-line no-unused-vars
+      } catch (e) {
+        savedServices = null;
+      }
+      if (Array.isArray(savedServices)) {
+        // Drop any entries with unsafe or malformed URLs
+        setServices(savedServices.filter(isValidService));
       } else {
         setServices(defaultServices);
         localStorage.setItem('mediaServices', JSON.stringify(defaultServices));
@@ -22,12 +30,14 @@ export const useMediaServices = () => {
   }, []);
 
   const addService = (newService) => {
+    if (!isValidService(newService)) return;
     const updatedServices = [...services, newService];
     setServices(updatedServices);
     localStorage.setItem('mediaServices', JSON.stringify(updatedServices));
   };
 
   const updateService = (index, updatedService) => {
+    if (!isValidService(updatedService)) return;
     const updatedServices = [...services];
     updatedServices[index] = updatedService;
     setServices(updatedServices);

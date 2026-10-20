@@ -5,7 +5,7 @@ export const branding = {
     company: {
       name: 'DashPlay',
       tagline: 'Your Entertainment Gateway',
-      copyright: '© 2025 Pcenicni.dev. All rights reserved.',
+      copyright: '© 2026 Pcenicni.dev. All rights reserved.',
       supportEmail: 'support@pcenicni.dev',
       website: "https://pcenicni.dev",
       sourceCode: "Github"
