@@ -2,12 +2,15 @@
 import { Play, Grid } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
+import { SeasonPicker } from '../components/theme/SeasonPicker';
+import { useTheme } from '../context/ThemeContext';
 import { buttons, company, nav } from '../config/branding';
 import Footer from '../components/Footer';
 import { trackEvent } from '../hooks/analytics';
 
 export const LaunchPage = () => {
   const navigate = useNavigate();
+  const { season } = useTheme();
 
   const handleLaunch = () => {
     trackEvent('button_click', {
@@ -22,8 +25,9 @@ export const LaunchPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center">
-      <div className="absolute top-4 right-4">
+    <div className="season-bg min-h-screen bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center">
+      <div className="absolute top-4 right-4 flex items-center space-x-1">
+        <SeasonPicker />
         <ThemeToggle />
       </div>
 
@@ -31,6 +35,11 @@ export const LaunchPage = () => {
         <div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{company.name}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">{company.tagline}</p>
+          {season && (
+            <p className="mt-2 text-sm font-medium text-(--season-accent)">
+              {season.emoji} {season.greeting} {season.emoji}
+            </p>
+          )}
         </div>
 
         {/* Main Launch Button */}
@@ -39,9 +48,9 @@ export const LaunchPage = () => {
             onClick={handleLaunch}
             className="group relative flex items-center justify-center w-48 h-48"
           >
-            <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-(--season-accent) rounded-full opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-blue-500 rounded-full p-12 transform group-hover:scale-105 transition-transform duration-300">
+              <div className="bg-(--season-accent) rounded-full p-12 transform group-hover:scale-105 transition-transform duration-300">
                 <Play className="w-16 h-16 text-white" fill="white" />
               </div>
             </div>

@@ -2,6 +2,8 @@ import { Grid, ArrowLeft, Plus, Settings, RefreshCw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
+import { SeasonPicker } from '../components/theme/SeasonPicker';
+import { LayoutToggle } from './LayoutToggle';
 import { titles, nav, buttons, modals } from '../config/branding';
 import { useState } from 'react';
 import {
@@ -16,7 +18,7 @@ import {
   AlertDialogTrigger,
 } from './ui/alert-dialog';
 
-const Header = ({ isManageMode, onManageToggle, onReset, onAdd }) => {
+const Header = ({ isManageMode, onManageToggle, onReset, onAdd, layout, onLayoutChange }) => {
   const navigate = useNavigate();
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
 
@@ -47,6 +49,8 @@ const Header = ({ isManageMode, onManageToggle, onReset, onAdd }) => {
             </div>
           </div>
           <div className="flex items-center space-x-2">
+            <LayoutToggle layout={layout} onChange={onLayoutChange} />
+            <SeasonPicker />
             <ThemeToggle />
             <AlertDialog open={isResetModalOpen} onOpenChange={setIsResetModalOpen}>
               <AlertDialogTrigger asChild>
@@ -85,7 +89,7 @@ const Header = ({ isManageMode, onManageToggle, onReset, onAdd }) => {
             </button>
             <button
               onClick={onAdd}
-              className="flex items-center px-3 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+              className="flex items-center px-3 py-2 bg-(--season-accent) text-white rounded-md hover:bg-(--season-accent-hover) transition-colors"
               aria-label={buttons.add}
             >
               <Plus className="w-5 h-5 mr-1" />
@@ -103,6 +107,8 @@ Header.propTypes = {
   onManageToggle: PropTypes.func.isRequired,
   onReset: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
+  layout: PropTypes.string.isRequired,
+  onLayoutChange: PropTypes.func.isRequired,
 };
 
 export { Header };

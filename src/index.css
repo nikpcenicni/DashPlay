@@ -131,3 +131,67 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ---------- Seasonal themes ----------
+   ThemeContext sets <html data-season="...">. Pages opt in to the tinted
+   background with the `season-bg` class; accents use var(--season-accent). */
+@layer base {
+  :root {
+    --season-accent: #2563eb;
+    --season-accent-hover: #1d4ed8;
+  }
+  .dark {
+    --season-accent: #3b82f6;
+    --season-accent-hover: #2563eb;
+  }
+}
+
+[data-season='halloween'] { --season-accent: #ea580c; --season-accent-hover: #c2410c; --season-bg-from: #fff7ed; --season-bg-to: #f3e8ff; }
+.dark[data-season='halloween'] { --season-bg-from: #1c1917; --season-bg-to: #2e1065; }
+
+[data-season='holidays'] { --season-accent: #dc2626; --season-accent-hover: #b91c1c; --season-bg-from: #f0fdf4; --season-bg-to: #fee2e2; }
+.dark[data-season='holidays'] { --season-accent: #ef4444; --season-accent-hover: #dc2626; --season-bg-from: #052e16; --season-bg-to: #450a0a; }
+
+[data-season='winter'] { --season-accent: #0284c7; --season-accent-hover: #0369a1; --season-bg-from: #f8fafc; --season-bg-to: #e0f2fe; }
+.dark[data-season='winter'] { --season-accent: #0ea5e9; --season-accent-hover: #0284c7; --season-bg-from: #0f172a; --season-bg-to: #082f49; }
+
+[data-season='spring'] { --season-accent: #db2777; --season-accent-hover: #be185d; --season-bg-from: #fdf2f8; --season-bg-to: #ecfccb; }
+.dark[data-season='spring'] { --season-accent: #ec4899; --season-accent-hover: #db2777; --season-bg-from: #1a2e05; --season-bg-to: #500724; }
+
+[data-season='summer'] { --season-accent: #0d9488; --season-accent-hover: #0f766e; --season-bg-from: #fefce8; --season-bg-to: #cffafe; }
+.dark[data-season='summer'] { --season-accent: #14b8a6; --season-accent-hover: #0d9488; --season-bg-from: #083344; --season-bg-to: #422006; }
+
+[data-season='autumn'] { --season-accent: #c2410c; --season-accent-hover: #9a3412; --season-bg-from: #fffbeb; --season-bg-to: #fed7aa; }
+.dark[data-season='autumn'] { --season-accent: #ea580c; --season-accent-hover: #c2410c; --season-bg-from: #1c1917; --season-bg-to: #431407; }
+
+/* Unlayered so it overrides the page's Tailwind background utilities */
+[data-season] .season-bg {
+  background-image: linear-gradient(to bottom right, var(--season-bg-from), var(--season-bg-to));
+  background-attachment: fixed;
+}
+
+.season-particle {
+  position: absolute;
+  top: 0;
+  opacity: 0.55;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.season-fall { animation-name: season-fall; }
+.season-rise { animation-name: season-rise; }
+
+@keyframes season-fall {
+  from { transform: translate3d(0, -10vh, 0) rotate(0deg); }
+  50%  { transform: translate3d(4vw, 50vh, 0) rotate(180deg); }
+  to   { transform: translate3d(-2vw, 110vh, 0) rotate(360deg); }
+}
+@keyframes season-rise {
+  from { transform: translate3d(0, 110vh, 0); }
+  50%  { transform: translate3d(-4vw, 50vh, 0); }
+  to   { transform: translate3d(3vw, -10vh, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .season-particle { display: none; }
+}

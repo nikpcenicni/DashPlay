@@ -11,6 +11,8 @@ A web application that enhances the media viewing experience in Tesla browsers b
 - 💾 Browser cache storage for user preferences
 - ⚡ No server required - runs entirely in the browser
 - 🎨 Dark mode support
+- 🧩 Grid, compact and list layouts for your sources
+- 🎃 Seasonal themes (auto by date, or pick Halloween, Holidays, Winter, Spring, Summer or Autumn)
 - 📱 Responsive design for Tesla's browser
 
 ## How It Works
