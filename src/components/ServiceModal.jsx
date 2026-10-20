@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { X } from 'lucide-react';
 import { modals, errors } from '../config/branding';
@@ -17,7 +17,8 @@ const getFaviconUrl = (url) => {
 };
 
 export const ServiceModal = ({ service, onSave, onClose }) => {
-  const [formData, setFormData] = useState({
+  // The modal is mounted fresh each time it opens, so seeding from props once is enough
+  const [formData, setFormData] = useState(() => service ?? {
     name: '',
     logo: '',
     link: '',
@@ -25,13 +26,6 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
     textColor: 'text-blue-500',
     description: ''
   });
-
-  useEffect(() => {
-    if (service) {
-      setFormData(service);
-    }
-  }, [service]);
-
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -55,7 +49,7 @@ export const ServiceModal = ({ service, onSave, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-md p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white">

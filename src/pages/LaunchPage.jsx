@@ -22,7 +22,7 @@ export const LaunchPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 flex flex-col items-center justify-center">
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>

@@ -22,7 +22,7 @@ AlertDialogPortal.propTypes = {
 const AlertDialogOverlay = React.forwardRef(({ className, ...props }, ref) => (
     <AlertDialogPrimitive.Overlay
       ref={ref}
-      className={`${className} fixed inset-0 z-50 bg-black/50 dark:bg-white/20 backdrop-blur-sm transition-opacity animate-in fade-in`}
+      className={`${className} fixed inset-0 z-50 bg-black/50 dark:bg-white/20 backdrop-blur-xs transition-opacity animate-in fade-in`}
       {...props}
     />
   ));
@@ -89,7 +89,7 @@ AlertDialogDescription.propTypes = {
 const AlertDialogAction = React.forwardRef(({ className, ...props }, ref) => (
     <AlertDialogPrimitive.Action
       ref={ref}
-      className={`${className} inline-flex h-10 items-center justify-center rounded-md bg-blue-600 dark:bg-blue-500 py-2 px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50`}
+      className={`${className} inline-flex h-10 items-center justify-center rounded-md bg-blue-600 dark:bg-blue-500 py-2 px-4 text-sm font-semibold text-white transition-colors hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-hidden focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50`}
       {...props}
     />
   ));
@@ -101,7 +101,7 @@ AlertDialogAction.propTypes = {
 const AlertDialogCancel = React.forwardRef(({ className, ...props }, ref) => (
     <AlertDialogPrimitive.Cancel
       ref={ref}
-      className={`${className} mt-2 inline-flex h-10 items-center justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 py-2 px-4 text-sm font-semibold text-gray-900 dark:text-gray-100 transition-colors hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-0`}
+      className={`${className} mt-2 inline-flex h-10 items-center justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-transparent dark:bg-gray-700 py-2 px-4 text-sm font-semibold text-gray-900 dark:text-gray-100 transition-colors hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-hidden focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50 sm:mt-0`}
       {...props}
     />
   ));

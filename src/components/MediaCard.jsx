@@ -36,11 +36,13 @@ export const MediaCard = ({ service, onEdit, onDelete, isManageMode }) => {
         onClick={handleClick}
       >
         <div className="flex flex-col items-center text-center space-y-4">
-          <div className={`w-full h-32 relative ${service.color} bg-opacity-5 dark:bg-opacity-10 rounded-lg flex items-center justify-center p-4`}>
+          <div className="w-full h-32 relative rounded-lg flex items-center justify-center p-4">
+            {/* Tint layer: service.color is a stored bg-* class, so opacity is applied here */}
+            <div className={`absolute inset-0 rounded-lg ${service.color} opacity-5 dark:opacity-10`} />
             <img
               src={service.logo}
               alt={`${service.name} logo`}
-              className="max-w-full max-h-full object-contain filter drop-shadow-md dark:brightness-90"
+              className="relative max-w-full max-h-full object-contain filter drop-shadow-md dark:brightness-90"
               loading="lazy"
               onError={(e) => {
                 e.target.onerror = null;
